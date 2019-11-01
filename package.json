@@ -1,7 +1,7 @@
 {
   "name": "pig",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个挑选出所有中文的工具",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/tsc && node ./lib/index.js",
@@ -10,9 +10,9 @@
   "bin": {
     "pig": "./lib/index.js"
   },
-  "keywords": [],
+  "keywords": ["chinese", "pick chinese", "compare chinese"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/generator": "^7.5.5",
@@ -24,7 +24,6 @@
     "@babel/types": "^7.5.5",
     "@types/babel__core": "^7.1.2",
     "@types/babel__traverse": "^7.0.7",
-    "@types/koa": "^2.0.49",
     "@types/node": "^12.7.2",
     "typescript": "^3.5.3"
   }

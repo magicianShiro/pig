@@ -1,6 +1,6 @@
 {
   "name": "zzpig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个挑选出所有中文的工具",
   "main": "index.js",
   "scripts": {

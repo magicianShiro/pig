@@ -1,7 +1,10 @@
 # 一个挑选出所有中文的工具
 
-## HOW TO USE
-> 写个 pigrc.js 配置文件 然后输入 pig
+## how to install
+npm install zzpig --save-dev
+
+## how to use
+写个 pigrc.js 配置文件 然后输入 pig
 
 ## 配置文件的说明
 |字段|意思|是否可选|默认值|类型|

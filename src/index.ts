@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
-import Pick from './utils/pick'
+import Pig from './utils/pig'
 import inintInputHandle from './init/inputHandle'
 import initValidateHandle from './init/validateHandle'
 import initFileHandle from './init/fileHandle'
 import initDataHandle from './init/dataHandle'
 import initOutPutHandle from './init/outPutHandle'
 
-const pick = new Pick()
+const pig = new Pig()
 
-pick.use(initValidateHandle)
-pick.use(inintInputHandle)
-pick.use(initFileHandle)
-pick.use(initDataHandle)
-pick.use(initOutPutHandle)
+pig.use(initValidateHandle)
+pig.use(inintInputHandle)
+pig.use(initFileHandle)
+pig.use(initDataHandle)
+pig.use(initOutPutHandle)
 
-pick.exec()
+pig.exec()

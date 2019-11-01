@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import ReadFileQuene from '../utils/readFileQuene'
-import { Context } from '../utils/pick'
+import { Context } from '../utils/pig'
 import { getStat } from '../utils/common'
 
 

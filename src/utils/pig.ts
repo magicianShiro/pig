@@ -31,7 +31,7 @@ export interface Context {
 
 type IMiddleWare = (ctx: Context, next?: any) => Promise<any>
 
-class Pick {
+class Pig {
   private middleware: Array<IMiddleWare> = []
 
   private createContext(): Context {
@@ -98,4 +98,4 @@ class Pick {
   }
 }
 
-export default Pick
+export default Pig

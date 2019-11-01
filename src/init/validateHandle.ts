@@ -1,4 +1,4 @@
-import { Context } from '../utils/pick';
+import { Context } from '../utils/pig';
 import path from 'path'
 import * as babel from '@babel/core'
 import { Config } from '../config'

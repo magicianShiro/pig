@@ -1,5 +1,5 @@
 import path from 'path'
-import { Context } from '../utils/pick'
+import { Context } from '../utils/pig'
 import {
   getRootPath,
   readFile,

@@ -1,5 +1,5 @@
 // const CustomizeSet = require('../utils/customizeSet')
-import { Context } from '../utils/pick'
+import { Context } from '../utils/pig'
 import CustomizeSet from '../utils/customizeSet'
 import { generateNewCode } from '../utils/babelTraverse'
 

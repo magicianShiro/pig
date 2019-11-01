@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { Context } from '../utils/pick'
+import { Context } from '../utils/pig'
 import { getStat, mkdir, getPath } from '../utils/common'
 
 async function dirExistAndMake(dir: string) {

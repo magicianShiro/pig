@@ -4,7 +4,15 @@
 npm install zzpig --save-dev
 
 ## how to use
-写个 pigrc.js 配置文件 然后输入 pig
+1. 写个 pigrc.js 配置文件
+2. package.json中配置script, 举个栗子
+    ```json
+    "scripts": {
+      "start": "./node_modules/.bin/tsc && node ./lib/index.js",
+      "pig": "pig"
+    },
+    ```
+3. npm run pig
 
 ## 配置文件的说明
 |字段|意思|是否可选|默认值|类型|

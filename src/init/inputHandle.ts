@@ -1,9 +1,7 @@
 import path from 'path'
 import { Context } from '../utils/pig'
-import {
-  getRootPath,
-  readFile,
-  getPath } from '../utils/common'
+import { readFile,  getPath} from '../utils/common'
+import { traverseFileToObj } from '../utils/babelTraverse'
 
 export default async (ctx: Context, next: any) => {
   const { config } = ctx
@@ -12,7 +10,8 @@ export default async (ctx: Context, next: any) => {
   let compareOrigin: { [key: string]: string } | undefined
   let compareOriginFile: string | undefined
   if (config.compare) {
-    compareOrigin = require( await getPath(config.compare))
+    compareOrigin = traverseFileToObj(await readFile(await getPath(config.compare)))
+    // compareOrigin = require( await getPath(config.compare))
     compareOriginFile = await readFile(await getPath(config.compare))
     
   }

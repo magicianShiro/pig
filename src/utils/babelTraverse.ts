@@ -75,8 +75,6 @@ function _createNodeObj(propertiesArr: string[]): NodeCommentObj {
   return nodeObj
 }
 
-
-
 function _createCommentNode(nodeObj: NodeCommentObj): t.ObjectProperty[] {
   const keys = Object.keys(nodeObj);
   if(keys.length === 0) return []
@@ -130,7 +128,7 @@ function _createObjectExpressionVisit(nodeObj: NodeCommentObj) {
 }
 
 export function generateNewCode(data: string, properties: string[]) {
-  const ast = parser.parse(data)
+  const ast = parser.parse(data, { sourceType: "module" })
   traverse(ast, {
     VariableDeclaration(path: NodePath<t.Node>) {
       path.traverse(_createObjectExpressionVisit(_createNodeObj(properties)))
@@ -141,4 +139,39 @@ export function generateNewCode(data: string, properties: string[]) {
       minimal: true
     }
   }).code
+}
+
+export function traverseFileToObj(data: string): { [key: string]: string } {
+  const ast = parser.parse(data, { sourceType: "module" });
+  let resultObj: { [key: string]: string } = {}
+  traverse(ast, {
+    VariableDeclaration(variablePath) {
+      variablePath.traverse({
+        ObjectExpression(objectPath) {
+          objectPath.traverse({
+            Property(propertyPath) {
+              const key = propertyPath.node.key.value
+              const valueNode = propertyPath.node.value
+              let value = ''
+              if(t.isTemplateLiteral(valueNode)) {
+                propertyPath.traverse({
+                  TemplateElement(path) {
+                    value = path.node.value.raw
+                  }
+                })
+              } else {
+                propertyPath.traverse({
+                  StringLiteral(path) {
+                    value = path.node.value
+                  }
+                })
+              }
+              resultObj[key] = value
+            }
+          })
+        }
+      })
+    } 
+  })
+  return resultObj
 }

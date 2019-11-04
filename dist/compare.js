@@ -1,5 +1,7 @@
 // 原文件多出的部分
-const extra = {};
+const extra = {
+  "hello": ""
+};
 // 原文件缺少的部分
 const lack = {
   // data.js

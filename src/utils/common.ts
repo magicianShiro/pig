@@ -66,12 +66,13 @@ export const getRootPath = (() => {
   let root: string = ''
   return async function loop (dir = __dirname): Promise<string> {
     if (root) return root
-    const dirState = await _readDir(dir)
-    if (dirState.includes('pigrc.js')) {
-      return root = dir
-    } else {
-      return loop(path.parse(dir).dir)
-    }
+    return root = process.cwd()
+    // const dirState = await _readDir(dir)
+    // if (dirState.includes('pigrc.js')) {
+    //   return root = dir
+    // } else {
+    //   return loop(path.parse(dir).dir)
+    // }
   }
 })()
 

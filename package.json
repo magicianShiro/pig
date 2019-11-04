@@ -10,7 +10,11 @@
   "bin": {
     "pig": "./lib/index.js"
   },
-  "keywords": ["chinese", "pick chinese", "compare chinese"],
+  "keywords": [
+    "chinese",
+    "pick chinese",
+    "compare chinese"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {

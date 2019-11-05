@@ -8,7 +8,6 @@ npm install zzpig --save-dev
 2. package.json中配置script, 举个栗子
     ```json
     "scripts": {
-      "start": "./node_modules/.bin/tsc && node ./lib/index.js",
       "pig": "pig"
     },
     ```
@@ -21,5 +20,6 @@ npm install zzpig --save-dev
 | compare| 想要对比的文件 |可选| 无 | string|
 |extname| 想要读取的文件后缀 |可选| `[.js]` | array |
 |ignoreDir| 想要忽略掉的文件夹 |可选| 无 | array |
-|output| 输出配置 |可选| { filename: 'language.js', dirpath: '/dist' }  | { filename: string, dirpath: string } |
+|babelParse|babel解析ast所需的配置, 详情请看[babel-parse](https://www.babeljs.cn/docs/babel-parser)|可选| { sourceType: 'module',  plugins: ["jsx", 'classProperties', 'dynamicImport'] } | object|
+|output| 输出配置, filename: 输出的文件名, dirpath: 输出的文件路径 |可选| { filename: 'language.js', dirpath: '/dist' }  | { filename: string, dirpath: string } |
 

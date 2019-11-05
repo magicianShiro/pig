@@ -1,6 +1,7 @@
 import * as parser from '@babel/parser'
 import traverse from '@babel/traverse'
 import * as babelTypes from '@babel/types'
+import config from '../config'
 import fs from 'fs'
 
 export interface IReadFileQueue {
@@ -75,10 +76,7 @@ class ReadFileQuene {
     }
   }
   _getAstParseData(data: string) {
-    const ast = parser.parse(data, {
-      sourceType: "module",
-      plugins: ["jsx", 'classProperties', 'dynamicImport']
-    })
+    const ast = parser.parse(data, config.babelParse)
     let chinese: string[] = []
     traverse(ast, {
       enter(path) {

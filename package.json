@@ -3,19 +3,25 @@
   "version": "1.0.4",
   "description": "一个挑选出所有中文的工具",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magicianShiro/pig"
+  },
   "scripts": {
     "start": "./node_modules/.bin/tsc && node ./lib/index.js",
-    "tsc": "./node_modules/.bin/tsc"
+    "tsc": "./node_modules/.bin/tsc",
+    "patch": "npm version patch && git push origin master"
   },
   "bin": {
     "pig": "./lib/index.js"
   },
+  "homepage": "https://github.com/magicianShiro/pig#readme",
   "keywords": [
     "chinese",
     "pick chinese",
     "compare chinese"
   ],
-  "author": "",
+  "author": "magicianShiro <navi@movom.cc>",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.5.5",

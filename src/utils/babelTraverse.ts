@@ -51,7 +51,7 @@ declare module 'babel__generator/index' {
 //   return nodeArr
 // }
 
-function _createNodeObj(propertiesArr: string[]): NodeCommentObj {
+function _createNodeObj(propertiesArr: string[], compareOrigin?: { [key: string]: string }): NodeCommentObj {
   const nodeObj: NodeCommentObj = { noComment: [] }
   const commentKeyArr: string[] = []
   for(let i = 0, l = propertiesArr.length; i < l; i++) {
@@ -61,7 +61,8 @@ function _createNodeObj(propertiesArr: string[]): NodeCommentObj {
     if(currentData.startsWith('// ')) {
       continue
     } else {
-      node = t.objectProperty(t.stringLiteral(currentData), t.stringLiteral(''))
+      const value = (compareOrigin && compareOrigin[currentData]) || ''
+      node = t.objectProperty(t.stringLiteral(currentData), t.stringLiteral(value))
     }
     if(prevData && prevData.startsWith('// ')) {
       let commentKey = prevData.replace('//', '').replace(/\\/g, ' => ')
@@ -127,11 +128,11 @@ function _createObjectExpressionVisit(nodeObj: NodeCommentObj) {
   }
 }
 
-export function generateNewCode(data: string, properties: string[]) {
+export function generateNewCode(data: string, properties: string[], compareOrigin?: { [key: string]: string }) {
   const ast = parser.parse(data, { sourceType: "module" })
   traverse(ast, {
     VariableDeclaration(path: NodePath<t.Node>) {
-      path.traverse(_createObjectExpressionVisit(_createNodeObj(properties)))
+      path.traverse(_createObjectExpressionVisit(_createNodeObj(properties, compareOrigin)))
     }
   })
   return generate(ast, {

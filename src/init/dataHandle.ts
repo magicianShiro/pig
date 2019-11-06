@@ -92,7 +92,7 @@ function hasCompare(ctx: Context, chineseSet: CustomizeSet) {
   // 求交集
   // const unionArr = templateSet.union(chineseSet)
   const allData = generateNewCode(compareOriginFile!, lackDiff.getArr())
-  const extraData = generateNewCode(extraTemplate, extraDiff.getArr())
+  const extraData = generateNewCode(extraTemplate, extraDiff.getArr(), compareOrigin)
   const lackData = generateNewCode(lackTemplate, lackDiff.getArr())
   return {
     allData,

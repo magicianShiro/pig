@@ -1,6 +1,6 @@
 // 原文件多出的部分
 const extra = {
-  "hello": ""
+  "hello": "world"
 };
 // 原文件缺少的部分
 const lack = {
